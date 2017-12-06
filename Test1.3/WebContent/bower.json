@@ -1,0 +1,17 @@
+{
+  "name": "test1.2",
+  "description": "prueba nro 1",
+  "main": "index.js",
+  "authors": [
+    "ricardo villarroel"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
