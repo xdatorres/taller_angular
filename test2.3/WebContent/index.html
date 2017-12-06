@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app_test">
+<head>
+<meta charset="UTF-8">
+<title>Test2</title>
+<script type="text/javascript" src="/js/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="/js/app_routes.js"></script>
+<script type="text/javascript" src="/js/factorias.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+</head>
+<body ng-controller="controlador_principal">
+<p><button ng-click="cargar_ctrl1()">Cargar Controlador 1</button></p>
+<p><button ng-click="cargar_ctrl2()">Cargar Controlador 2</button></p>
+<p><button ng-click="cargar_ctrl3()">Cargar Controlador 3</button></p>
+<div ui-view></div>
+	<p>{{global}}</p>
+	<p>
+		<button ng-click="saludar()">Saludar</button>
+	</p>
+	<table>
+		<tr ng-repeat="usuario in usuarios">
+			<td>{{usuario.nombre}}</td>
+			<td>{{usuario.apellido}}</td>
+			<td>{{usuario.edad}}</td>
+		</tr>
+	</table>
+</body>
+</html>

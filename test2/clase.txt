@@ -1,0 +1,23 @@
+node
+node server.js
+
+npm init
+npm install --save express
+npm install --save moment
+npm install --save path
+npm install
+
+bower init
+bower install videogular
+bower install videogular-themes-default
+bower install videogular-controls
+bower install videogular-buffering
+bower install videogular-overlay-play
+bower install videogular-poster
+bower install videogular-ima-ads
+bower install videogular-angulartics
+
+bower install angular
+bower install angular-sanitize
+
+npm installl --save body-parser

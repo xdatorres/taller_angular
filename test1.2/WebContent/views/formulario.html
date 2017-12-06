@@ -1,0 +1,109 @@
+	<div class="container" style="padding-top: 50px">
+
+		<form class="well form-horizontal" id="contact_form"
+			ng-submit="enviar_formulario()">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend ng-show="ingresando">Formulario de Registro</legend>
+				<legend ng-show="!ingresando">Formulario de Edición</legend>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Primer nombre:</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-pencil"></i></span> <input
+								ng-model="usuario.primer_nombre" placeholder="Primer nombre"
+								class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Apellido:</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-pencil"></i></span> <input
+								ng-model="usuario.apellido" placeholder="Apellido"
+								class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">RUT:</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-pencil"></i></span> <input
+								ng-model="usuario.rut" placeholder="RUT" class="form-control"
+								type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Edad:</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-pencil"></i></span> <input
+								ng-model="usuario.edad" placeholder="Edad" class="form-control"
+								type="number" min="0" max="120">
+						</div>
+					</div>
+				</div>
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<button ng-show="ingresando" type="submit" class="btn btn-success">
+							Agregar <span class="glyphicon glyphicon-send"></span>
+						</button>
+						<button type="button" ng-show="!ingresando"
+							class="btn btn-warning" ng-click="editar()">
+							Editar <span class="glyphicon glyphicon-send"></span>
+						</button>
+						<button type="button" ng-show="!ingresando" class="btn btn-info"
+							ng-click="regresar()">
+							<span class="glyphicon glyphicon-refresh"></span>
+						</button>
+					</div>
+
+				</div>
+
+			</fieldset>
+		</form>
+	</div>
+	</div>
+	<!-- /.container -->
+
+	<div class="container" style="padding-top: 50px">
+		<table class="table" ng-table="ng_table" show-filter="true">
+           <tr ng-repeat="usuario in $data">
+              <td title="'Nombre'" filter="{primer_nombre:'text'}" sortable="primer_nombre">
+              	{{usuario.primer_nombre}}
+              </td>
+              <td title="'Apellido'" filter="{apellido:'text'}" sortable="apellido">
+              	{{usuario.apellido}}
+              </td>
+              <td>
+                 <button class="btn btn-success" ng-click="cargar_edicion(usuario)">Detalle</button>
+                 <button class="btn btn-danger" ng-click="eliminar($index)">Eliminar</button>
+              </td>
+           </tr>
+		</table>
+	</div>
+	<div id="container"
+		style="min-width: 310px; height: 400px; margin: 0 auto"></div>

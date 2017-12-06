@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app_test2">
+<head>
+<meta charset="UTF-8">
+<title>Test2</title>
+<script type="text/javascript"
+	src="/js/angular.min.js"></script>
+<script type="text/javascript"
+	src="/js/app.js"></script>
+	
+</head>
+<body ng-controller="controlador_principal">
+	<img src="/img/gato.jpeg">
+	{{saludo}}
+	<div ng-bind="saludo" style="background-color: red"></div>
+	<br>
+	<input type="text" ng-model='saludo'>
+	<br>
+	<button ng-click="cambiar_saludo()">Cambiar</button>
+	<br> {{usuario.nombre}} {{usuario.apellido}} {{usuario.ano}}
+	<br>
+	<table>
+		<tr ng-repeat="pais in paises">
+			<td>{{pais}}</td>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<td ng-repeat="pais in paises">{{pais}}</td>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr ng-repeat="fruta in frutas">
+			<td>{{fruta.nombre}}</td>
+			<td>{{fruta.calorias}} cal</td>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr ng-repeat="fila in sudoku">
+			<td>{{fila}}</td>
+		</tr>
+	</table>
+</body>
+</html>

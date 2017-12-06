@@ -1,0 +1,161 @@
+	<div class="container" style="padding-top: 50px">
+
+		<form class="well form-horizontal" ng-submit="ingresar_usuario()">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Formulario de ingreso</legend>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Nombre</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+								placeholder="Nombre" class="form-control" type="text"
+								ng-model="usuario.nombre">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Apellido</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+								placeholder="Apellido" class="form-control" type="text"
+								ng-model="usuario.apellido">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Rut</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+								placeholder="99.999.999-K" class="form-control" type="text"
+								ng-model="usuario.rut">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Edad</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+								placeholder="Edad" class="form-control" type="number" min="1"
+								max="120" ng-model="usuario.edad">
+						</div>
+					</div>
+				</div>
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<button type="submit" class="btn btn-success">
+							Enviar <span class="glyphicon glyphicon-send"></span>
+						</button>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
+	</div>
+	</div>
+	<!-- /.container -->
+
+	<div class="container" style="padding-top: 50px" ng-show="editando">
+
+		<form class="well form-horizontal" ng-submit="ingresar_usuario()">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Formulario de edición</legend>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Nombre</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+								placeholder="Nombre" class="form-control" type="text"
+								ng-model="usuario_edicion.nombre">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Apellido</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+								placeholder="Apellido" class="form-control" type="text"
+								ng-model="usuario_edicion.apellido">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Rut</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+								placeholder="99.999.999-K" class="form-control" type="text"
+								ng-model="usuario_edicion.rut">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Edad</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+								placeholder="Edad" class="form-control" type="number" min="1"
+								max="120" ng-model="usuario_edicion.edad">
+						</div>
+					</div>
+				</div>
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<div ng-click="regresar()" class="btn btn-info">
+							Ocultar <span class="glyphicon glyphicon-arrow-left"></span>
+						</div>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
+	</div>
+	<!-- /.container -->
+
+	<div class="container" style="padding-top: 50px">
+		<table class="table table-hover" ng-table="ng_table"
+			show-filter="true">
+			<tr ng-repeat="usuario in $data">
+				<td title="'Nombre'" filter="{nombre: 'text'}" sortable="'nombre'">{{usuario.nombre}}</td>
+				<td title="'Apellido'" filter="{apellido: 'text'}" sortable="'apellido'">{{usuario.apellido}}</td>
+				<td title="'Rut'" filter="{rut: 'text'}" sortable="'rut'">{{usuario.rut}}</td>
+				<td title="'Edad'" filter="{edad: 'text'}" sortable="'edad'">{{usuario.edad}}</td>
+				<td ><button class="btn btn-success"
+						ng-click="cargar_edicion($index)">Detalle</button>
+					<button class="btn btn-danger" ng-click="eliminar($index)">Eliminar</button></td>
+			</tr>
+
+		</table>
+		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	</div>

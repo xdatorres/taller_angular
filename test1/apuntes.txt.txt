@@ -1,0 +1,20 @@
+en la carpeta webcontent, para inicializar npm init y poner los parámetros necesarios
+
+luego instalar dependencias: npm install --save express, npm install --save moment, npm install --save path
+
+node server.js para iniciar server
+
+npm install --save bower
+bower init
+
+Para dejar el servidor corriendo aunq se cierre la consola:
+  Instalar: npm install forever -g
+  Iniciar: forever start server.js
+  Detener: forever stop server.js
+
+ bower init
+ npm install --save body-parser
+ npm install --save 
+ 
+ npm init (crea package.json)
+ 
