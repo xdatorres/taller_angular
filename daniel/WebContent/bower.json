@@ -1,0 +1,17 @@
+{
+  "name": "daniel",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Dat <xdatorres@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/xdatorres/taller_angular",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

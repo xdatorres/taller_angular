@@ -1,0 +1,139 @@
+
+<div class="container" style="padding-top: 50px">
+
+	<form class="well form-horizontal" id="contact_form"
+		ng-submit="enviar_formulario()">
+		<fieldset>
+
+			<!-- Form Name -->
+			<legend ng-show="ingresando">Cotizador de Respuestos</legend>
+			<legend ng-show="!ingresando">Edici&oacute;n Cotizador de
+				Respuestos</legend>
+
+			<!-- Text input-->
+
+			<div class="form-group">
+				<label class="col-md-4 control-label">Marca:</label>
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-pencil"></i></span> <input
+							ng-model="repuesto.marca" placeholder="Marca"
+							class="form-control" type="text">
+					</div>
+				</div>
+			</div>
+
+			<!-- Text input-->
+
+			<div class="form-group">
+				<label class="col-md-4 control-label">Modelo:</label>
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-pencil"></i></span> <input
+							ng-model="repuesto.modelo" placeholder="Modelo"
+							class="form-control" type="text">
+					</div>
+				</div>
+			</div>
+
+			<!-- Text input-->
+
+			<div class="form-group">
+				<label class="col-md-4 control-label">Repuesto:</label>
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-pencil"></i></span> <input
+							ng-model="repuesto.repuesto" placeholder="Repuesto"
+							class="form-control" type="text">
+					</div>
+				</div>
+			</div>
+
+			<!-- Text input-->
+
+			<div class="form-group">
+				<label class="col-md-4 control-label">Precio:</label>
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-pencil"></i></span> <input
+							ng-model="repuesto.precio" placeholder="Precio"
+							class="form-control" type="number">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label">Cantidad:</label>
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-pencil"></i></span> <input
+							ng-model="repuesto.cantidad" placeholder="Cantidad"
+							class="form-control" type="number">
+					</div>
+				</div>
+			</div>
+
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label"></label>
+				<div class="col-md-4">
+					<button ng-show="ingresando" type="submit" class="btn btn-success">
+						Agregar <span class="glyphicon glyphicon-send"></span>
+					</button>
+					<button type="button" ng-show="!ingresando" class="btn btn-warning"
+						ng-click="editar()">
+						Editar <span class="glyphicon glyphicon-send"></span>
+					</button>
+					<button type="button" ng-show="!ingresando" class="btn btn-info"
+						ng-click="regresar()">
+						<span class="glyphicon glyphicon-refresh"></span>
+					</button>
+				</div>
+
+			</div>
+
+		</fieldset>
+	</form>
+	<div class="form-group">
+		<label class="col-md-4 control-label">TOTAL GENERAL:</label>
+		<div class="col-md-4 inputGroupContainer">
+			<div class="input-group">
+				<span class="input-group-addon"><input
+					ng-model="totalGral" class="form-control" type="number"
+					disabled></span>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!-- /.container -->
+
+<div class="container" style="padding-top: 50px">
+	<table class="table" ng-table="ng_table" show-filter="true">
+		<tr ng-repeat="repuesto in $data">
+			<td title="'Marca'" filter="{marca:'text'}" sortable="marca">
+				{{repuesto.marca}}</td>
+			<td title="'Modelo'" filter="{modelo:'text'}" sortable="modelo">
+				{{repuesto.modelo}}</td>
+			<td title="'Repuesto'" filter="{repuesto:'text'}" sortable="repuesto">
+				{{repuesto.repuesto}}</td>
+			<td title="'Precio'" filter="{precio:'number'}" sortable="precio"
+				style="width: 45px">{{repuesto.precio}}</td>
+			<td title="'Cantidad'" filter="{cantidad:'number'}"
+				sortable="cantidad" style="width: 45px">{{repuesto.cantidad}}</td>
+			<td title="'Total'" filter="{total:'number'}" sortable="total"
+				style="width: 70px">{{repuesto.total}}</td>
+			<td>
+				<button class="btn btn-success" ng-click="cargar_edicion(repuesto)">Detalle</button>
+				<button class="btn btn-danger" ng-click="eliminar($index)">Eliminar</button>
+			</td>
+		</tr>
+	</table>
+</div>
+<div id="container"
+	style="min-width: 310px; height: 400px; margin: 0 auto"></div>

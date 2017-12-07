@@ -1,0 +1,132 @@
+
+<div class="container" style="padding-top: 50px">
+
+	<form class="well form-horizontal" ng-submit="ingresar_usuario()">
+		<fieldset>
+
+			<!-- Form Name -->
+			<legend>Configuración de movimientos OLL </legend>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<div class="col-md-4"></div>
+				<table class="col-md-4 table table-bordered" style="background-color: white; width: 10px; height: 10px;">
+					<!--<tr ng-repeat="fila in usuario.cubo track by $index">
+					
+						<td ng-repeat="col in fila track by $index" ng-click="test($index, col.val)">[index:{{$index}} fila:{{fila}}] {{fila[$index].val}} - 
+						{{$index}} {{col.val}} {{col}}</td>
+					</tr>-->
+					<tr ng-repeat="row in usuario.cubo track by $index">
+						<td id="{{$index}}_{{cell}}" ng-repeat="cell in row track by $index" ng-click="test(usuario, $index, cell)"></td>
+					</tr>
+				</table>
+
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+
+						<span class="input-group-addon"><i class="glyphicon glyphicon-fullscreen"></i></span> <input name="first_name" placeholder="MOVIMIENTOS" class="form-control" type="text"
+							ng-model="usuario.movimiento">
+					</div>
+				</div>
+			</div>
+
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label"></label>
+				<div class="col-md-4">
+					<button type="submit" class="btn btn-success">
+						Enviar <span class="glyphicon glyphicon-send"></span>
+					</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+</div>
+<!-- /.container -->
+
+<div class="container" style="padding-top: 50px" ng-show="editando">
+
+	<form class="well form-horizontal" ng-submit="ingresar_usuario()">
+		<fieldset>
+
+			<!-- Form Name -->
+			<legend>Formulario de edición</legend>
+
+			<!-- Text input-->
+
+			<!-- Text input-->
+			<div class="form-group">
+				<div class="col-md-4"></div>
+				<table class="col-md-4 table table-bordered" style="background-color: white; width: 10px; height: 10px;">
+					{{usuario_edicion.cubo_save}}
+					<tr>
+						<td id="0,0{{$index}}" ng-style="usuario_edicion.estilo.AA" ng-click="test(usuario_edicion, 0, 0)"></td>
+						<td id="0,1{{$index}}" ng-style="usuario_edicion.estilo.BA" ng-click="test(usuario_edicion, 0, 1)"></td>
+						<td id="0,2{{$index}}" ng-style="usuario_edicion.estilo.CA" ng-click="test(usuario_edicion, 0, 2)"></td>
+					</tr>
+					<tr>
+						<td id="1,0{{$index}}" ng-style="usuario_edicion.estilo.AB" ng-click="test(usuario_edicion, 1, 0)"></td>
+						<td id="1,1{{$index}}" ng-style="usuario_edicion.estilo.BB" ng-click="test(usuario_edicion, 1, 1)"></td>
+						<td id="1,2{{$index}}" ng-style="usuario_edicion.estilo.CB" ng-click="test(usuario_edicion, 1, 2)"></td>
+					</tr>
+					<tr>
+						<td id="2,0{{$index}}" ng-style="usuario_edicion.estilo.AC" ng-click="test(usuario_edicion, 2, 0)"></td>
+						<td id="2,1{{$index}}" ng-style="usuario_edicion.estilo.BC" ng-click="test(usuario_edicion, 2, 1)"></td>
+						<td id="2,2{{$index}}" ng-style="usuario_edicion.estilo.CC" ng-click="test(usuario_edicion, 2, 2)"></td>
+					</tr>
+				</table>
+
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-fullscreen"></i></span> <input name="first_name" placeholder="MOVIMIENTOS" class="form-control" type="text"
+							ng-model="usuario_edicion.movimiento">
+					</div>
+				</div>
+			</div>
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label"></label>
+				<div class="col-md-4">
+					<div ng-click="regresar()" class="btn btn-info">
+						Ocultar <span class="glyphicon glyphicon-arrow-left"></span>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+<!-- /.container -->
+
+<div class="container" style="padding-top: 50px">
+	<table class="table table-hover" ng-table="ng_table" show-filter="true">
+		<tr ng-repeat="usuario in $data">
+			<td title="'Cubo'" sortable="'cubo'">
+				<table class="col-md-4 table table-bordered" style="background-color: white; width: 10px; height: 10px;">
+					{{usuario.cubo_save}}
+					<tr>
+						<td id="0,0{{$index}}" ng-style="usuario.estilo.AA"></td>
+						<td id="0,1{{$index}}" ng-style="usuario.estilo.BA"></td>
+						<td id="0,2{{$index}}" ng-style="usuario.estilo.CA"></td>
+					</tr>
+					<tr>
+						<td id="1,0{{$index}}" ng-style="usuario.estilo.AB"></td>
+						<td id="1,1{{$index}}" ng-style="usuario.estilo.BB"></td>
+						<td id="1,2{{$index}}" ng-style="usuario.estilo.CB"></td>
+					</tr>
+					<tr>
+						<td id="2,0{{$index}}" ng-style="usuario.estilo.AC"></td>
+						<td id="2,1{{$index}}" ng-style="usuario.estilo.BC"></td>
+						<td id="2,2{{$index}}" ng-style="usuario.estilo.CC"></td>
+					</tr>
+				</table>
+			</td>
+			<td title="'Movimiento'" filter="{nombre: 'text'}" sortable="'movimiento'">{{usuario.movimiento}}</td>
+			<td><button class="btn btn-success" ng-click="cargar_edicion($index)">Detalle</button>
+				<button class="btn btn-danger" ng-click="eliminar($index)">Eliminar</button></td>
+		</tr>
+
+	</table>
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
